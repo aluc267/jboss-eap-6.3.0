@@ -9,9 +9,8 @@ ADD jboss /opt/jboss/jboss-eap-6.3
 
 # Add EAP_HOME environment variable, to easily upgrade the script for different EAP versions
 ENV EAP_HOME /opt/jboss/jboss-eap-6.3
-
-# Add default admin user
-RUN ${EAP_HOME}/bin/add-user.sh admin admin123! --silent
+ENV JBOSS_HOME /opt/jboss/jboss-eap-6.3
+WORKDIR /opt/jboss/jboss-eap-6.3
 
 ENTRYPOINT ["/opt/jboss/jboss-eap-6.3/bin/standalone.sh"]
 CMD []
