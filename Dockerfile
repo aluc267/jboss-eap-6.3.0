@@ -6,13 +6,13 @@
 
 FROM jboss/base-jdk:7
 ADD jboss /opt/jboss/jboss-eap-6.3
+USER root
 
 # Add EAP_HOME environment variable, to easily upgrade the script for different EAP versions
 ENV EAP_HOME /opt/jboss/jboss-eap-6.3
 ENV JBOSS_HOME /opt/jboss/jboss-eap-6.3
 WORKDIR /opt/jboss/jboss-eap-6.3
 
-USER root
 RUN localedef -c -f UTF-8 -i en_US en_US.UTF-8
 ENV LC_ALL=en_US.UTF-8
 
